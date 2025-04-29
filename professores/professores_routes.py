@@ -1,9 +1,7 @@
-from flask import Blueprint, jsonify, request
-
-from .professores_model import (ProfessorNaoEncontrado, attProfessor,
-                                criarProfessor, criarProfessorErro,
-                                deletarProfessor, getPorIdProfessor,
-                                getTodosProfessores, merge_dicts)
+from flask import Blueprint, request, jsonify,render_template,redirect, url_for
+from datetime import datetime
+from .professores_model import ProfessorNaoEncontrado, criarProfessorErro, getTodosProfessores, getPorIdProfessor, criarProfessor, attProfessor, deletarProfessor
+from config import db
 
 professores_bp = Blueprint('professores', __name__)
 
