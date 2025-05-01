@@ -1,5 +1,4 @@
-from flask import Blueprint, request, jsonify,render_template,redirect, url_for
-from datetime import datetime
+from flask import Blueprint, request, jsonify
 from .professores_model import ProfessorNaoEncontrado, criarProfessorErro, getTodosProfessores, getPorIdProfessor, criarProfessor, attProfessor, deletarProfessor
 from config import db
 

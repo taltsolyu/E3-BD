@@ -2,7 +2,6 @@ from config import db
 import copy
 from sqlalchemy.inspection import inspect
 
-
 class Professor(db.Model):
     __tablename__ = "Professor"
     id = db.Column(db.Integer,primary_key=True)
@@ -10,13 +9,6 @@ class Professor(db.Model):
     idade = db.Column(db.Integer, nullable=False)
     materia = db.Column(db.String(100), nullable=False)
     observacoes = db.Column(db.String(100), nullable=True)
-    
-    # def __init__(self, id, nome, idade, materia, observacoes):
-    #     self.id = id
-    #     self.nome = nome
-    #     self.idade = idade
-    #     self.materia = materia
-    #     self.observacoes = observacoes
     
     def to_dict(self):
         return {'id': self.id, 'nome': self.nome, 'idade': self.idade, 'materia': self.materia, 'observacoes': self.observacoes}
@@ -44,10 +36,6 @@ def criarProfessor(dados):
 
 def getPorIdProfessor(idProfessor):
     professor = Professor.query.get(idProfessor)
-    print(f"professor: {professor}")
-    print(f"type(professor): {type(professor)}")
-    print(f"professor is None: {professor is None}")
-    print(f"bool(professor): {bool(professor)}")
     if professor is None:
         raise ProfessorNaoEncontrado
     return professor.to_dict()
